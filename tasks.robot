@@ -14,12 +14,13 @@ ${moneda}=    GS
 ${producto}=    45
 ${referencia}=    000202-001     #seguros de vida br - sin solicitud
 ${digital}=    ${True}
+${texto_poliza}=    8510
 
 *** Tasks ***
  
 Emitir poliza
     Emision de poliza    ${fecha_desde}    ${fecha_hasta}    ${seccion}   
-    ...    ${entidad}    ${referencia}    ${digital}
+    ...    ${entidad}    ${referencia}    ${digital}    ${texto_poliza}
 
 
 
@@ -27,7 +28,7 @@ Emitir poliza
 *** Keywords ***
 Emision de poliza
     [Arguments]    ${fecha_desde}    ${fecha_hasta}    ${seccion}     
-    ...    ${entidad}    ${referencia}    ${digital}
+    ...    ${entidad}    ${referencia}    ${digital}    ${texto_poliza}
     Abrir menu de emision
     Cargar nuevo  
     
@@ -40,6 +41,11 @@ Abrir menu de emision
     
 Cargar nuevo    
     Send Keys    desktop    keys={n}
+    Cargar datos generales
+    Cargar articulos
+    Cargar texto especial
+
+Cargar datos generales
     Send Keys    desktop    ${seccion}
     Send Keys    desktop    keys={Enter}
     Send Keys    desktop    keys={Enter}
@@ -83,7 +89,6 @@ Cargar nuevo
     Send Keys    desktop    keys={Enter}
     Send Keys    desktop    si
     Send Keys    desktop    keys={Enter}
-    Cargar articulos
 
 Cargar articulos
     Click    name:Articulos
@@ -123,14 +128,31 @@ Cargar articulos
     Send Keys    desktop    keys={Enter}
     Send Keys    desktop    keys={Enter}
     Send Keys    desktop    s
-
     #Beneficiarios
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Alt}+${8}    
+    #Para borrar lo que contene incicialmente beneficiarios y agregar A DECLARAR      
+    Send Keys    desktop    keys={Ctrl}{a}
+    Send Keys    desktop    A DECLARAR.-
+    #Grabar articulos
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Alt}+{G}
+
+Cargar texto especial
+    Send Keys    desktop    keys={Alt}+${4}
+    #Seleccionar "Desde otra poliza"
     
-    #Para borrar lo que contiene incicialmente beneficiarios       
-    FOR    ${i}    IN RANGE    25
-        Send Keys    desktop    keys={Del}
-        ${i}=    Evaluate    ${i}+1
-    END
+    Send Keys    desktop    keys={Enter}
+    Send Keys    desktop    ${texto_poliza}
+    Send Keys    desktop    keys={Enter}
+    Send Keys    desktop    keys={Enter}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Alt}+{R}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Alt}+{G}
+
+
+
 
 
 
