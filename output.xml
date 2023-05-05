@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230505 09:36:10.768" rpa="true" schemaversion="3">
+<suite id="s1" name="Tasks" source="c:\Code\RPA\RobotCancelacion\tasks.robot">
+<test id="s1-t1" name="Issue policy" line="12">
+<status status="FAIL" starttime="20230505 09:36:11.708" endtime="20230505 09:36:11.710">Task contains no keywords.</status>
+</test>
+<doc>Robot Cancelacion de deudas</doc>
+<status status="FAIL" starttime="20230505 09:36:10.795" endtime="20230505 09:36:11.716"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
