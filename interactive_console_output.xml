@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230505 13:27:46.413" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230508 09:51:35.572" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot Interactive Console" source="c:\Users\francisco\.vscode\extensions\robocorp.robotframework-lsp-1.10.1\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
 <test id="s1-t1" name="Default Task/Test" line="5">
 <kw name="Interpreter Main Loop" library="MainLoop">
-<kw name="desktop">
-<arg>keys={Up}</arg>
-<msg timestamp="20230505 13:27:47.703" level="FAIL">No keyword with name 'desktop' found.</msg>
-<status status="FAIL" starttime="20230505 13:27:47.703" endtime="20230505 13:27:47.703"/>
+<status status="PASS" starttime="20230508 09:51:35.650" endtime="20230508 09:53:22.646"/>
 </kw>
-<status status="PASS" starttime="20230505 13:27:46.491" endtime="20230505 13:30:21.387"/>
-</kw>
-<status status="PASS" starttime="20230505 13:27:46.490" endtime="20230505 13:30:21.387"/>
+<status status="PASS" starttime="20230508 09:51:35.649" endtime="20230508 09:53:22.646"/>
 </test>
-<status status="PASS" starttime="20230505 13:27:46.420" endtime="20230505 13:30:21.390"/>
+<status status="PASS" starttime="20230508 09:51:35.578" endtime="20230508 09:53:22.649"/>
 </suite>
 <statistics>
 <total>

@@ -14,7 +14,9 @@ ${moneda}=    GS
 ${producto}=    45
 ${referencia}=    000202-001     #seguros de vida br - sin solicitud
 ${digital}=    ${True}
-${texto_poliza}=    8510
+${asegurado}=    00000020243-0000
+${beneficiario}=    A DECLARAR.-
+${texto_poliza}=    Beneficiario: Tomador y/o Acreedor: BANCO REGIONAL
 
 *** Tasks ***
  
@@ -44,6 +46,7 @@ Cargar nuevo
     Cargar datos generales
     Cargar articulos
     Cargar texto especial
+    Carga terminada
 
 Cargar datos generales
     Send Keys    desktop    ${seccion}
@@ -133,26 +136,53 @@ Cargar articulos
     Send Keys    desktop    keys={Alt}+${8}    
     #Para borrar lo que contene incicialmente beneficiarios y agregar A DECLARAR      
     Send Keys    desktop    keys={Ctrl}{a}
-    Send Keys    desktop    A DECLARAR.-
+    Send Keys    desktop    ${beneficiario}
+    #Asegurado
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    ${asegurado}
+    Send Keys    desktop    keys={Enter}
     #Grabar articulos
     Send Keys    desktop    keys={Tab}
-    Send Keys    desktop    keys={Alt}+{G}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Tab}
+    Send Keys    desktop    keys={Enter}
 
 Cargar texto especial
     Send Keys    desktop    keys={Alt}+${4}
     #Seleccionar "Desde otra poliza"
-    
-    Send Keys    desktop    keys={Enter}
+    Send Keys    desktop    keys={Tab}    
+    Send Keys    desktop    keys={Ctrl}{a}
     Send Keys    desktop    ${texto_poliza}
-    Send Keys    desktop    keys={Enter}
-    Send Keys    desktop    keys={Enter}
-    Send Keys    desktop    keys={Tab}
-    Send Keys    desktop    keys={Alt}+{R}
-    Send Keys    desktop    keys={Tab}
-    Send Keys    desktop    keys={Alt}+{G}
+    Click    name:Grabar
+
+Cargar cuotas    #Para polizas madre no es necesaria esta funcion
+    Send Keys    desktop    keys={Alt}+${1}
+
+Carga terminada
+    Send Keys    desktop    keys={Alt}+${1}
+    Send Keys    desktop    keys{Alt}+{T}
 
 
-
+Click Desde otra poliza
+    Click    image:resources/desde_otra_poliza.png
+    
 
 
 
