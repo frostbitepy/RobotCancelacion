@@ -3,7 +3,7 @@ Documentation       Robot Cancelacion de deudas
 
 
 Library        RPA.Windows
-Library    RPA.FTP
+Library        RPA.FTP
 
 *** Variables ***
 ${fecha_desde}=    05052023
