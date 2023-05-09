@@ -4,6 +4,8 @@ Documentation       Robot Cancelacion de deudas
 
 Library        RPA.Windows
 Library        RPA.FTP
+Library        RPA.FileSystem
+
 
 *** Variables ***
 ${fecha_desde}=    05052023
@@ -16,7 +18,21 @@ ${referencia}=    000202-001     #seguros de vida br - sin solicitud
 ${digital}=    ${True}
 ${asegurado}=    00000020243-0000
 ${beneficiario}=    A DECLARAR.-
-${texto_poliza}=    Beneficiario: Tomador y/o Acreedor: BANCO REGIONAL
+${texto_poliza}=    SEPARATOR=\n
+...                \nBeneficiario: Tomador y/o Acreedor: BANCO REGIONAL SAECA
+...                \n
+...                \nEDADES LÍMITE
+...                \nEdad máxima de ingreso: 75 años para Cobertura de Fallecimiento y 65 años para Cobertura de Incapacidad Total y Permanente.
+...                \nEdad máxima de permanencia: 85 años para Cobertura de Fallecimiento y 70 años para Cobertura de Incapacidad Total y Permanente.
+...                \n
+...                \nTipo de Crédito: PRESTAMOS DE CONSUMO
+...                \n
+...                \nForman parte integrante de la presente Póliza, las siguientes Coberturas Adicionales, Anexos y Endosos: 
+...                \nCoberturas: 
+...                \n- Fallecimiento
+...                \n- Cobertura complementaria de Incapacidad Total y Permanente
+
+
 
 *** Tasks ***
  
@@ -169,6 +185,7 @@ Cargar texto especial
     #Seleccionar "Desde otra poliza"
     Send Keys    desktop    keys={Tab}    
     Send Keys    desktop    keys={Ctrl}{a}
+    #${texto_poliza}=    Read File    ${CURDIR}${/}resources${/}texto_poliza.txt
     Send Keys    desktop    ${texto_poliza}
     Click    name:Grabar
 
@@ -180,8 +197,7 @@ Carga terminada
     Send Keys    desktop    keys{Alt}+{T}
 
 
-Click Desde otra poliza
-    Click    image:resources/desde_otra_poliza.png
+
     
 
 
