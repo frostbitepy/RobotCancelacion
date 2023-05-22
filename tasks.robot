@@ -5,7 +5,7 @@ Documentation       Robot Cancelacion de deudas
 Library        RPA.Windows
 Library        RPA.FTP
 Library        RPA.FileSystem
-
+Library        RPA.Desktop
 
 *** Variables ***
 ${fecha_desde}=    05052023
@@ -18,7 +18,7 @@ ${referencia}=    000202-001     #seguros de vida br - sin solicitud
 ${digital}=    ${True}
 ${asegurado}=    00000020243-0000
 ${beneficiario}=    A DECLARAR.-
-${texto_poliza}=    SEPARATOR=\n
+${texto_poliza}=    SEPARATOR=
 ...                \nBeneficiario: Tomador y/o Acreedor: BANCO REGIONAL SAECA
 ...                \n
 ...                \nEDADES LÍMITE
@@ -110,7 +110,7 @@ Cargar datos generales
     Send Keys    desktop    keys={Enter}
 
 Cargar articulos
-    Click    name:Articulos
+    RPA.Windows.Click    name:Articulos
     #Datos de articulo
     Send Keys    desktop    keys={Tab}
     Send Keys    desktop    ${fecha_desde}
@@ -186,8 +186,8 @@ Cargar texto especial
     Send Keys    desktop    keys={Tab}    
     Send Keys    desktop    keys={Ctrl}{a}
     #${texto_poliza}=    Read File    ${CURDIR}${/}resources${/}texto_poliza.txt
-    Send Keys    desktop    ${texto_poliza}
-    Click    name:Grabar
+    Type Text    ${texto_poliza}    
+    RPA.Windows.Click    name:Grabar
 
 Cargar cuotas    #Para polizas madre no es necesaria esta funcion
     Send Keys    desktop    keys={Alt}+${1}
