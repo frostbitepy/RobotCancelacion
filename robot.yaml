@@ -19,6 +19,8 @@ artifactsDir: output
 PATH:
   - .
 PYTHONPATH:
+  - keywords
+  - resources
   - libraries
 
 ignoreFiles:
